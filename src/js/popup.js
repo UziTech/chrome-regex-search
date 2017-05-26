@@ -116,6 +116,7 @@ function createHistoryLineElement(text) {
 		}
 	});
 	var lineDiv = document.createElement("div");
+	lineDiv.className = "historyRow";
 	lineDiv.appendChild(deleteEntrySpan);
 	lineDiv.appendChild(linkSpan);
 	return lineDiv;
