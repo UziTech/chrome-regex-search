@@ -319,11 +319,14 @@ chrome.tabs.query({
 			chrome.tabs.sendMessage(tabs[0].id, {
 				"message": "getSearchInfo"
 			}, function (response) {
+				console.log(response);
 				if (response) {
 					// Content script is active
-					console.log(response);
+					if (response.selectedText) {
+						sentInput = true;
+						document.getElementById("inputRegex").value = response.selectedText;
+					}
 				} else {
-					console.log(response);
 					document.getElementById("error").textContent = ERROR_TEXT;
 				}
 			});
